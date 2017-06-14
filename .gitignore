@@ -1,4 +1,4 @@
-compiled source #
+# compiled source #
 ###################
 *.com
 *.class
@@ -6,6 +6,9 @@ compiled source #
 *.exe
 *.o
 *.so
+
+# compiled executable#
+pmc
 
 # Packages #
 ############
