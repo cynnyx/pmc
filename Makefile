@@ -47,8 +47,8 @@ libpmc: $(IO_SRC) $(PMC_SRC) $(BOUND_LIB_SRC) $(H_FILES) src/pmc_lib.cpp
 	$(CXX) -static-libstdc++ $(CFLAGS) -shared -o libpmc.so \
 		$(IO_SRC) $(PMC_SRC) $(BOUND_LIB_SRC) src/pmc_lib.cpp -fopenmp
 
-libpmc_test: libpmc.so src/libpmc_test.cpp
-	$(CXX) src/libpmc_test.cpp ./libpmc.so  -o libpmc_test
+libpmc_test: libpmc.so test/libpmc_test.cpp
+	$(CXX) test /libpmc_test.cpp ./libpmc.so  -o libpmc_test
 	./libpmc_test
 
 clean:
