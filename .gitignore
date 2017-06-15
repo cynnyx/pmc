@@ -6,9 +6,11 @@
 *.exe
 *.o
 *.so
-
+*.dylib
 # compiled executable#
 pmc
+libpmc*
+
 
 # Packages #
 ############
@@ -88,3 +90,7 @@ exp/
 *.toc
 *.vrb
 *.xdy
+
+# IDE files
+*.idea*
+*cmake-build-debug*
