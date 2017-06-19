@@ -15,11 +15,11 @@ cmake_minimum_required(VERSION 3.0)
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
-endif(NOT CMAKE_BUILD_TYPE)
+endif()
 
 if(NOT LIBRARY_TYPE)
     set(LIBRARY_TYPE "Shared")
-endif(NOT LIBRARY_TYPE)
+endif()
 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 0)

@@ -103,7 +103,7 @@ class input {
             string edge_sorter = "";
 
             int opt;
-            while ((opt=getopt(argc,argv,"i:t:f:u:l:o:e:a:r:w:h:k:dgsv")) != EOF) {
+            while ((opt=getopt(argc, argv, "i:t:f:u:l:o:e:a:r:w:h:k:dgsv")) != EOF) {
                 switch (opt) {
                     case 'a':
                         algorithm = atoi(optarg);

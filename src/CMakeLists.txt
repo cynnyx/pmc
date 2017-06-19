@@ -59,32 +59,7 @@ target_include_directories(runPmc PUBLIC ${DIR_ROOT})
 target_link_libraries(runPmc LINK_PUBLIC ${TARGET_PMC})
 
 if(${PYTHON} STREQUAL "ON")
-
-    # Scan all directories for PY inclusions.
-    macro(HEADER_DIRECTORIES return_list)
-        file(GLOB_RECURSE new_list *.h)
-        set(dir_list "")
-
-        foreach(file_path ${new_list})
-            get_filename_component(dir_path ${file_path} PATH)
-            set(dir_list ${dir_list} ${dir_path})
-        endforeach()
-
-        list(REMOVE_DUPLICATES dir_list)
-
-        set(tmp_list "")
-        foreach(dir_path ${dir_list})
-            set(tmp_list "${tmp_list} -I${dir_path}")
-        endforeach()
-        set(${return_list} ${tmp_list})
-        message(${return_list})
-    ENDMACRO()
-
-
-    HEADER_DIRECTORIES(py_inclusions)
-
-    # Compile Options
-    set(PMC_PY_FLAGS "${py_inclusions} -DCOMPILE_PYTHON")
+    set(PMC_PY_FLAGS "-DCOMPILE_PYTHON")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${PMC_PY_FLAGS}")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${PMC_PY_FLAGS}")
     set(PYBIND11_CPP_STANDARD -std=c++${CMAKE_CXX_STANDARD})
@@ -102,8 +77,7 @@ if(${PYTHON} STREQUAL "ON")
     set(PMC_PY_INCLUDE_DIR
             ${DIR_ROOT}
             ${PROJECT_DEPS_DIR}/pybind11
-            ${dlib_INCLUDE_DIRS}
-            )
+    )
 
     pybind11_add_module(pmc_py ${SRC})
     target_include_directories(pmc_py PUBLIC ${PMC_PY_INCLUDE_DIR})
