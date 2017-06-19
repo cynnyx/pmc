@@ -14,7 +14,7 @@ project(${PROJECT_NAME})
 cmake_minimum_required(VERSION 3.0)
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
+    set(CMAKE_BUILD_TYPE Debug)
 endif(NOT CMAKE_BUILD_TYPE)
 
 if(NOT LIBRARY_TYPE)
@@ -117,9 +117,14 @@ set(TARGET_PMC ${PROJECT_NAME})
 
 find_package(Threads REQUIRED)
 
+if(NOT PYTHON)
+    set(PYTHON OFF)
+endif()
 
+if(${PYTHON} STREQUAL "ON")
+    add_subdirectory(${PROJECT_SOURCE_DIR}/${PROJECT_DEPS_DIR}/pybind11)
+endif()
 
-add_subdirectory(${PROJECT_DEPS_DIR}/pybind11)
 add_subdirectory(${PROJECT_SRC_DIR})
 add_subdirectory(${PROJECT_TEST_DIR})
 
