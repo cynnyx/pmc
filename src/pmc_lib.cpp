@@ -35,7 +35,8 @@ int max_clique(long long nedges, int *ei, int *ej, int index_offset,
     if (G.num_edges() > 1000000000 && in.remove_time < 120)  in.remove_time = 120;
     else if (G.num_edges() > 250000000 && in.remove_time < 10) in.remove_time = 10;
     cout << "explicit reduce is set to " << in.remove_time << " seconds" <<endl;
-    
+
+    //! upper-bound of max clique
     double seconds = get_time();
     G.compute_cores();
     if (in.ub == 0) {
@@ -43,7 +44,7 @@ int max_clique(long long nedges, int *ei, int *ej, int index_offset,
         cout << "K: " << in.ub <<endl;
         cout << "k-cores time: " << get_time() - seconds << ", ub: " << in.ub << endl;
     }
-    
+
     //! lower-bound of max clique
     vector<int> C;
     if (in.lb == 0 && in.heu_strat != "0") { // skip if given as input
@@ -109,7 +110,7 @@ int max_clique(long long nedges, int *ei, int *ej, int index_offset,
     for(int i = 0; i < C.size() && i < outsize; i++)
         clique[i] = C[i] + index_offset;
 
-    return C.size();
+    return static_cast<int>(C.size());
     return 0;
 }
 
