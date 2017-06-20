@@ -27,7 +27,7 @@ def pmc(ei, ej, nnodes, nnedges): #ei, ej is edge list whose index starts from 0
     new_ej = np.array(new_ej,dtype = np.int32)
     outsize = maxd
     output = np.zeros(maxd,dtype = np.int32)
-    lib = ctypes.cdll.LoadLibrary("libpmc" + getSharedLibraryExtension())
+    lib = ctypes.cdll.LoadLibrary("../libpmc" + getSharedLibraryExtension())
     fun = lib.max_clique
     #call C function
     fun.restype = np.int32

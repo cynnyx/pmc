@@ -79,19 +79,7 @@ if(${PYTHON} STREQUAL "ON")
             ${PROJECT_DEPS_DIR}/pybind11
     )
 
-    pybind11_add_module(pmc_py ${SRC})
-    target_include_directories(pmc_py PUBLIC ${PMC_PY_INCLUDE_DIR})
+    pybind11_add_module(python_bindings ${SRC})
+    target_include_directories(python_bindings PUBLIC ${PMC_PY_INCLUDE_DIR})
+    set_target_properties(python_bindings PROPERTIES PREFIX "pmc_" SUFFIX "${CMAKE_SHARED_LIBRARY_SUFFIX}")
 endif()
-
-
-
-
-
-
-
-
-
-
-
-
-
