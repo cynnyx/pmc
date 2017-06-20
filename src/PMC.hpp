@@ -1,11 +1,13 @@
 #pragma once
+
+#include <memory>
 #include "pmc.h"
 
 namespace pmc{
     class PMC {
     public:
         PMC(std::string arguments);
-        PMC(input _in);
+        PMC(pmc::Input _in);
         void setTime();
         void setMaxCliqueBounds();
         void checkSolution();
@@ -15,8 +17,8 @@ namespace pmc{
     private:
         void initGraph();
         double seconds;
-        pmc::pmc_graph G;
-        input in;
+        std::unique_ptr<pmc::pmc_graph> G;
+        pmc::Input in;
     };
 }
 

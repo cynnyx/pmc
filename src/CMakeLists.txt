@@ -81,7 +81,6 @@ if(${PYTHON} STREQUAL "ON")
 
     pybind11_add_module(pmc_py ${SRC})
     target_include_directories(pmc_py PUBLIC ${PMC_PY_INCLUDE_DIR})
-    target_link_libraries(pmc_py PRIVATE ${TARGET_PMC})
 endif()
 
 

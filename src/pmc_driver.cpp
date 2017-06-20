@@ -25,7 +25,7 @@ using namespace pmc;
 int main(int argc, char *argv[]) {
 
     //! parse command args
-    input in{argc, argv};
+    pmc::Input in{argc, argv};
     if (in.help) {
         usage(argv[0]);
         return 0;

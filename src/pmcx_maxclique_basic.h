@@ -71,7 +71,7 @@ namespace pmc {
                 decr_order = false;
             }
 
-            void setup_bounds(input& params) {
+            void setup_bounds(Input &params) {
                 lb = params.lb;
                 ub = params.ub;
                 param_ub = params.param_ub;
@@ -85,7 +85,7 @@ namespace pmc {
             }
 
 
-            pmcx_maxclique_basic(pmc_graph& G, input& params) {
+            pmcx_maxclique_basic(pmc_graph &G, Input &params) {
                 bound = G.get_kcores();
                 order = G.get_kcore_ordering();
                 setup_bounds(params);

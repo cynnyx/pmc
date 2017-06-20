@@ -25,7 +25,8 @@
 
 using namespace std;
 
-class input {
+namespace pmc{
+    class Input {
     public:
         // instance variables
         int algorithm;
@@ -48,8 +49,8 @@ class input {
         string output;
         string edge_sorter;
         string vertex_search_order;
-        
-        input() {
+
+        Input() {
             // default values
             algorithm = 0;
             threads = omp_get_max_threads();
@@ -71,7 +72,7 @@ class input {
             graph = "data/sample.mtx";
             output = "";
             string edge_sorter = "";
-            
+
             // both off, use default alg
             if (heu_strat == "0" && algorithm == -1)
                 algorithm = 0;
@@ -79,7 +80,7 @@ class input {
             if (threads <= 0) threads = 1;
         }
 
-        input(int argc, char *argv[]) {
+        Input(int argc, char *argv[]) {
             // default values
             algorithm = 0;
             threads = omp_get_max_threads();
@@ -187,5 +188,7 @@ class input {
             omp_set_num_threads(threads);
         }
 
-};
+    };
+}
+
 #endif

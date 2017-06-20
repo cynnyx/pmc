@@ -40,7 +40,7 @@ namespace pmc {
             int ub;
             string strat;
 
-            pmc_heu(pmc_graph& G, input& params) {
+            pmc_heu(pmc_graph &G, Input &params) {
                 K = G.get_kcores();
                 order = G.get_kcore_ordering();
                 ub = params.ub;

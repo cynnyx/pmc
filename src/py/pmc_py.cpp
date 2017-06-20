@@ -6,7 +6,7 @@ namespace py = pybind11;
 PYBIND11_PLUGIN(pmc){
     py::module m{"PMC Module", "Python Bindings for PMC"};
 
-    py::class_<pmc::PMC, std::shared_ptr<pmc::PMC>> pmc{m, "PMC"};
+    py::class_<pmc::PMC> pmc{m, "PMC"};
     pmc.def(py::init<std::string>())
             .def("run", &pmc::PMC::run)
             .def_readwrite("maxClique", &pmc::PMC::C);
